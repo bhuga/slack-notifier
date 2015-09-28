@@ -18,7 +18,7 @@ module Slack
       message      = LinkFormatter.format(message)
       if attachments = options[:attachments] || options["attachments"]
         attachments.each do |attachment|
-          ["text", :text, "fallback", :fallback].each do |key|
+          ["text", :text].each do |key|
             attachment[key] = LinkFormatter.format(attachment[key]) if attachment.has_key?(key)
           end
         end
